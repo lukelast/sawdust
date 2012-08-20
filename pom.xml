@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-	<!-- POM file generated with GWT webAppCreator -->
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.googlecode.sawdust</groupId>
 	<artifactId>SawDust</artifactId>
 	<packaging>war</packaging>
@@ -163,7 +162,7 @@
 				</executions>
 			</plugin>
 
-			<!-- Delete gwt generated stuff -->
+			<!-- Delete GWT generated stuff -->
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>2.5</version>
@@ -188,9 +187,10 @@
 				</configuration>
 			</plugin>
 
+			<!-- Can generate configuration files for eclipse. -->
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>  <!-- Note 2.8 does not work with AspectJ aspect path -->
+				<version>2.9</version>
 				<configuration>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>false</downloadJavadocs>
@@ -208,4 +208,13 @@
 
 		</plugins>
 	</build>
+	<url>http://code.google.com/p/sawdust/</url>
+	<name>Sawdust</name>
+	<scm>
+		<url>https://code.google.com/p/sawdust</url>
+	</scm>
+	<issueManagement>
+		<url>http://code.google.com/p/sawdust/issues/list</url>
+		<system>Google Code</system>
+	</issueManagement>
 </project>
