@@ -1,8 +1,8 @@
 package com.googlecode.sawdust.server;
 
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.sawdust.client.GreetingService;
 import com.googlecode.sawdust.shared.FieldVerifier;
-import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
  * The server side implementation of the RPC service.
@@ -27,7 +27,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
     input = escapeHtml(input);
     userAgent = escapeHtml(userAgent);
 
-    return "Hello, " + input + "!<br><br>I am running " + serverInfo
+        return "Hello, " + input + "!<br><br>I am running " + serverInfo
         + ".<br><br>It looks like you are using:<br>" + userAgent;
   }
 
