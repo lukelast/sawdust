@@ -1,14 +1,22 @@
 package com.googlecode.sawdust.shared;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.gwt.user.client.rpc.IsSerializable;
 
 import java.util.Map;
 
-public final class LogEntry {
+public final class LogEntry implements IsSerializable {
 
-	private final String logName;
-	private final long timestamp;
-	private final ImmutableMap<String, String> properties;
+	private String logName;
+	private long timestamp;
+	private ImmutableMap<String, String> properties;
+
+	/**
+	 * Only for GWT serialization, do not use.
+	 */
+	public LogEntry() {
+	}
 
 	public LogEntry(String logName, long timestamp,
 			Map<String, String> properties) {
@@ -27,5 +35,9 @@ public final class LogEntry {
 
 	public String getProperty(String key) {
 		return this.properties.get(key);
+	}
+
+	public ImmutableSet<String> getKeys() {
+		return this.properties.keySet();
 	}
 }

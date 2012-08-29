@@ -1,8 +1,12 @@
 package com.googlecode.sawdust.client;
 
+import com.google.common.collect.ImmutableList;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.googlecode.sawdust.shared.LogEntry;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -20,15 +24,30 @@ public class SawDust implements EntryPoint {
 	 * Create a remote service proxy to talk to the server-side Greeting
 	 * service.
 	 */
-	private final GreetingServiceAsync greetingService = GWT
-			.create(GreetingService.class);
+	private final RemoteServerServiceAsync rpcService = GWT
+			.create(RemoteServerService.class);
 
 	/**
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
 
-		RootLayoutPanel.get().add(new LogTable());
+		final LogTable logTable = new LogTable();
+
+		RootLayoutPanel.get().add(logTable);
+
+		rpcService.getLogs(ImmutableList.<String> of(), 0L, 0L,
+				new AsyncCallback<ImmutableList<LogEntry>>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.toString());
+					}
+
+					@Override
+					public void onSuccess(ImmutableList<LogEntry> result) {
+						logTable.setData(result);
+					}
+				});
 
 		// final Button sendButton = new Button("Send"
 		// + ImmutableList.of(5).iterator().next());

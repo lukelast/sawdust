@@ -36,7 +36,7 @@ public class SawDustTest extends GWTTestCase {
    */
   public void testGreetingService() {
     // Create the service that we will test.
-    GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+    RemoteServerServiceAsync greetingService = GWT.create(RemoteServerService.class);
     ServiceDefTarget target = (ServiceDefTarget) greetingService;
     target.setServiceEntryPoint(GWT.getModuleBaseURL() + "sawdust/greet");
 
