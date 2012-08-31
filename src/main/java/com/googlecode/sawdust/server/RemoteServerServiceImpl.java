@@ -6,13 +6,20 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.sawdust.client.RemoteServerService;
 import com.googlecode.sawdust.shared.FieldVerifier;
 import com.googlecode.sawdust.shared.LogEntry;
+import org.h2.tools.Server;
 
 import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+import javax.inject.Singleton;
 
 /**
  * The server side implementation of the RPC service.
  */
 @SuppressWarnings("serial")
+@Singleton
 public class RemoteServerServiceImpl extends RemoteServiceServlet implements
 		RemoteServerService {
 
@@ -75,5 +82,30 @@ public class RemoteServerServiceImpl extends RemoteServiceServlet implements
 						"col2", "row2col2")),
 				new LogEntry("log", 333, ImmutableMap.of("col1", "row3col1",
 						"col2", "row3col2", "col3", "row3col3")));
+	}
+
+	@Override
+	public void importLogs(String path, String logName) {
+
+		try {
+			Class.forName("org.h2.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:h2:~/test",
+					"sa", "");
+			Server.startWebServer(conn);
+
+			// final Statement stm = conn.createStatement();
+			// boolean result = stm.execute("CREATE TABLE logs" + "("
+			// + "name varchar(255)," + "time Long," + ")");
+			// System.out.println(result);
+
+			final Statement stm = conn.createStatement();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+
+		System.out.println(path);
+		System.out.println(logName);
 	}
 }

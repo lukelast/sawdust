@@ -68,6 +68,27 @@
 			<artifactId>guava-gwt</artifactId>
 			<version>13.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.googlecode.gwtupload</groupId>
+			<artifactId>gwtupload</artifactId>
+			<version>0.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-grapher</artifactId>
+			<version>3.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<!-- Generate compiled stuff in the folder used for developing mode -->

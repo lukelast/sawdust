@@ -13,4 +13,6 @@ public interface RemoteServerServiceAsync {
 
 	void getLogs(ImmutableList<String> logNames, long timeStart, long timeEnd,
 			AsyncCallback<ImmutableList<LogEntry>> callback);
+
+	void importLogs(String path, String logName, AsyncCallback<Void> callback);
 }

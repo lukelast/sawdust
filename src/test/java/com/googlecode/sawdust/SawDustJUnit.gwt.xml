@@ -10,6 +10,6 @@
   <inherits name='com.googlecode.sawdust.SawDust'/>
 
   <!-- Specify the path to any remote services.                   -->
-  <servlet path="/sawdust/greet" class="com.googlecode.sawdust.server.GreetingServiceImpl" />
+  <servlet path="/sawdust/rpc" class="com.googlecode.sawdust.server.RemoteServerServiceImpl" />
 
 </module>

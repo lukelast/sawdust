@@ -39,8 +39,6 @@ public final class TomcatLogParser {
 
 	private final Reader reader;
 	private final StringBuilder sb = new StringBuilder(128);
-	private String nextToken = "";
-	private SplitToken lastSplit;
 
 	public Collection<LogEntry> parse() throws IOException, ParseException {
 		Builder<LogEntry> list = ImmutableList.builder();
@@ -182,5 +180,4 @@ public final class TomcatLogParser {
 			sb.append((char) nextChar);
 		}
 	}
-
 }
