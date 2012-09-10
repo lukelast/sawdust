@@ -7,6 +7,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -27,7 +28,9 @@ public class ImportLogsPanel extends Composite {
 	@UiField
 	InputElement fileFetchLogName;
 
-	public ImportLogsPanel() {
+
+
+    public ImportLogsPanel() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -49,4 +52,19 @@ public class ImportLogsPanel extends Composite {
 					}
 				});
 	}
+
+    @UiHandler("buttonDbConsole")
+    public void handleClick(ClickEvent event) {
+        rpcService.launchDbConsole(new AsyncCallback<Void>() {
+            @Override
+            public void onFailure(Throwable caught) {
+                //To change body of implemented methods use File | Settings | File Templates.
+            }
+
+            @Override
+            public void onSuccess(Void result) {
+                //To change body of implemented methods use File | Settings | File Templates.
+            }
+        });
+    }
 }

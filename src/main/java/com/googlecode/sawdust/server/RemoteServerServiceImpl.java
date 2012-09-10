@@ -9,6 +9,7 @@ import javax.inject.Singleton;
 import com.google.common.collect.ImmutableList;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.sawdust.client.RemoteServerService;
+import com.googlecode.sawdust.server.db.DataAccessFakeData;
 import com.googlecode.sawdust.server.db.DataAccessService;
 import com.googlecode.sawdust.shared.FieldVerifier;
 import com.googlecode.sawdust.shared.LogEntry;
@@ -92,17 +93,13 @@ public class RemoteServerServiceImpl extends RemoteServiceServlet implements Rem
     @Override
     public void importLogs( String path, String logName )
     {
-        try
-        {
-            this.dataService.launchExternalAdminInterface();
-        }
-        catch ( Exception ex )
-        {
-            ex.printStackTrace();
-            throw new RuntimeException( ex );
-        }
 
         System.out.println( path );
         System.out.println( logName );
+    }
+
+    @Override
+    public void launchDbConsole() {
+        this.dataService.launchExternalAdminInterface();
     }
 }

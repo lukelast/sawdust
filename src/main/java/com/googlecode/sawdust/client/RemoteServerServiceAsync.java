@@ -15,4 +15,6 @@ public interface RemoteServerServiceAsync
     void importLogs( String path, String logName, AsyncCallback<Void> callback );
 
     void greetServer( String name, AsyncCallback<String> callback );
+
+    void launchDbConsole(AsyncCallback<Void> async);
 }

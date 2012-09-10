@@ -26,4 +26,6 @@ public interface RemoteServerService extends RemoteService
      * @param logName
      */
     void importLogs( String path, String logName );
+
+    void launchDbConsole();
 }

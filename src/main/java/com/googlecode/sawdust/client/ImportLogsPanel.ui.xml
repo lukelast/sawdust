@@ -1,15 +1,20 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g='urn:import:com.google.gwt.user.client.ui'>
-	<ui:style>
-		.important {
-		    font-weight: bold;
-		}
-	</ui:style>
-	<g:HTMLPanel>
-		Path to local file on server:
-		<input type="text"  ui:field="fileFetchPath" />
-		Log Name:
-		<input type="text"  ui:field="fileFetchLogName" />
-		<g:Button ui:field="importButton">Import</g:Button>
-	</g:HTMLPanel>
+    <ui:style>
+        .important {
+            font-weight: bold;
+        }
+    </ui:style>
+    <g:HTMLPanel>
+        <g:VerticalPanel>
+            <g:Button ui:field="buttonDbConsole">Launch Database Debug Console</g:Button>
+            <g:HTMLPanel>
+                Path to local file on server:
+                <input type="text" ui:field="fileFetchPath"/>
+                Log Name:
+                <input type="text" ui:field="fileFetchLogName"/>
+                <g:Button ui:field="importButton">Import</g:Button>
+            </g:HTMLPanel>
+        </g:VerticalPanel>
+    </g:HTMLPanel>
 </ui:UiBinder>

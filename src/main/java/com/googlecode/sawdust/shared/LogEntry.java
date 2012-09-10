@@ -40,4 +40,20 @@ public final class LogEntry implements IsSerializable {
 	public ImmutableSet<String> getKeys() {
 		return this.properties.keySet();
 	}
+
+    public ImmutableSet<Map.Entry<String,String>> getProperties() {
+        return this.properties.entrySet();
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("LogEntry");
+        sb.append("{logName='").append(logName).append('\'');
+        sb.append(", timestamp=").append(timestamp);
+        sb.append(", properties=").append(properties);
+        sb.append('}');
+        return sb.toString();
+    }
 }
+
